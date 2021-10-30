@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/30 18:57:25 by hbui              #+#    #+#             */
-/*   Updated: 2021/10/30 22:36:49 by hbui             ###   ########.fr       */
+/*   Created: 2021/10/30 22:28:16 by hbui              #+#    #+#             */
+/*   Updated: 2021/10/30 22:28:19 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+char *ft_strdup(char *src)
+{
+	char *dup;
 
-void	ft_putchar(char c);
-int	ft_strlen(char *str);
-char	*ft_strcpy(char *dest, char *src);
-char	*ft_strdup(char *src);
-
-#endif
+	dup = (char *)malloc(ft_strlen(src) + 1);
+	return (ft_strcpy(dup, src));
+}
