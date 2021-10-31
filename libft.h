@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 18:57:25 by hbui              #+#    #+#             */
-/*   Updated: 2021/10/30 22:36:49 by hbui             ###   ########.fr       */
+/*   Updated: 2021/10/31 08:17:27 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@
 # include <stdlib.h>
 
 void	ft_putchar(char c);
-int	ft_strlen(char *str);
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strdup(char *src);
+void	ft_putnbr(int nb);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif

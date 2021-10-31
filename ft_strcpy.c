@@ -6,13 +6,13 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 22:28:28 by hbui              #+#    #+#             */
-/*   Updated: 2021/10/30 22:28:34 by hbui             ###   ########.fr       */
+/*   Updated: 2021/10/31 07:16:36 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -23,4 +23,3 @@ char *ft_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-
