@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:45:01 by hbui              #+#    #+#             */
-/*   Updated: 2021/10/31 00:03:21 by hbui             ###   ########.fr       */
+/*   Updated: 2021/10/31 10:19:34 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putstr(char *str)
 {
-	while (*str)
-		ft_putchar(*str++);
+	ft_putstr_fd(str, 1);
 }
