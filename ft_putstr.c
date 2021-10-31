@@ -6,13 +6,13 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:45:01 by hbui              #+#    #+#             */
-/*   Updated: 2021/10/31 10:19:34 by hbui             ###   ########.fr       */
+/*   Updated: 2021/10/31 10:47:55 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(char const *s)
 {
-	ft_putstr_fd(str, 1);
+	ft_putstr_fd(s, 1);
 }
