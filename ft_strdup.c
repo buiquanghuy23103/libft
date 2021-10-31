@@ -6,13 +6,13 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 19:14:56 by hbui              #+#    #+#             */
-/*   Updated: 2021/10/31 07:11:23 by hbui             ###   ########.fr       */
+/*   Updated: 2021/10/31 12:46:32 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
 	char	*dup;
 
