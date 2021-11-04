@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:47:07 by hbui              #+#    #+#             */
-/*   Updated: 2021/10/27 16:47:08 by hbui             ###   ########.fr       */
+/*   Updated: 2021/11/04 19:44:42 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@ int	ft_strlen(char *str)
 	int	length;
 
 	length = 0;
+	if (str == 0)
+		return (0);
 	if (*str == 0)
 		return (0);
 	while (*str)
