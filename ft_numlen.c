@@ -6,13 +6,13 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 21:45:04 by hbui              #+#    #+#             */
-/*   Updated: 2021/11/08 21:58:15 by hbui             ###   ########.fr       */
+/*   Updated: 2021/11/08 22:37:12 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_numlen(int n)
+int	ft_numlen(int n)
 {
 	int	len;
 
