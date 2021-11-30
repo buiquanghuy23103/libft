@@ -6,13 +6,13 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 13:38:06 by hbui              #+#    #+#             */
-/*   Updated: 2021/11/30 17:52:03 by hbui             ###   ########.fr       */
+/*   Updated: 2021/11/30 21:32:20 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_elem_and_transform(char *s, char c)
+int	transform(char *s, char c)
 {
 	int	count;
 	int	i;
@@ -37,25 +37,25 @@ int	ft_count_elem_and_transform(char *s, char c)
 char	**ft_strsplit(char const *s, char c)
 {
 	int		i;
-	int		k;
 	char	*dup;
 	int		str_len;
 	char	**split;
 
 	i = 0;
-	k = 0;
 	dup = ft_strdup(s);
+	if (!dup)
+		return (NULL);
 	str_len = ft_strlen(s);
-	split = (char **)ft_memalloc(sizeof(char *)
-			* (ft_count_elem_and_transform(dup, c) + 1));
+	split = (char **)ft_memalloc(sizeof(char *) * (transform(dup, c) + 1));
 	if (!split)
 		return (NULL);
+	c = 0;
 	while (i < str_len)
 	{
 		while (i < str_len && !dup[i])
 			i++;
 		if (i < str_len)
-			split[k++] = ft_strdup(dup + i);
+			split[c++] = ft_strdup(dup + i);
 		while (i < str_len && dup[i])
 			i++;
 	}
