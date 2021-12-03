@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:32:37 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/03 16:51:43 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/03 17:28:16 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
+	int	i;
 	int	haystack_len;
 	int	needle_len;
-	int	i;
 
+	i = 0;
 	haystack_len = ft_strlen(haystack);
 	needle_len = ft_strlen(needle);
 	if (needle_len == 0)
