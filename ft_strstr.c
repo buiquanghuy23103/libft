@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:32:37 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/03 17:28:16 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/03 17:50:22 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		while (haystack[i])
 		{
 			if (haystack[i] == needle[0]
-				&& ft_strncmp(haystack + i, needle, needle_len) == 0)
+				&& ft_strnequ(haystack + i, needle, needle_len))
 				return ((char *) haystack + i);
 			i++;
 		}
