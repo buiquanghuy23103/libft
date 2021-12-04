@@ -6,13 +6,13 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 13:38:06 by hbui              #+#    #+#             */
-/*   Updated: 2021/11/30 21:32:20 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/04 14:40:24 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	transform(char *s, char c)
+static int	transform(char *s, char c)
 {
 	int	count;
 	int	i;
