@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:42:38 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/05 15:56:07 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/05 16:01:58 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char	*str_src;
 	size_t	i;
 
-	if (!dst || !src)
+	if (!dst && !src)
 		return (NULL);
 	str_dst = (char *) dst;
 	str_src = (char *) src;
