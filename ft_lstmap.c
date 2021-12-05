@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:35:21 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/05 13:07:38 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/05 14:02:27 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,23 @@
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*new_lst;
+	t_list	*temp;
 
 	if (lst)
 	{
-		new_lst = (t_list *)ft_memalloc(sizeof(t_list));
+		new_lst = f(lst);
 		if (new_lst)
 		{
-			while (lst->next)
+			temp = new_lst;
+			lst = lst->next;
+			while (lst)
 			{
-				f(lst)->next = f(lst->next);
+				temp->next = f(lst);
+				temp = temp->next;
+				if (temp)
+					temp->next = NULL;
+				else
+					return (NULL);
 				lst = lst->next;
 			}
 		}
