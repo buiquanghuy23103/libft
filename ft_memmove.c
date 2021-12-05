@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 20:01:42 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/01 17:23:43 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/05 19:55:20 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,23 @@
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	int		i;
-	char	*str_dst;
-	char	*dup;
+	unsigned char	*str_dst;
+	unsigned char	*str_src;
 
-	i = 0;
-	str_dst = (char *) dst;
-	dup = ft_strdup((char *) src);
-	while (i < len)
+	if (!dst && !src)
+		return (NULL);
+	if (((unsigned long) dst) < ((unsigned long) src))
+		return (ft_memcpy(dst, src, len));
+	else
 	{
-		str_dst[i] = dup[i];
-		i++;
+		i = len - 1;
+		str_dst = (unsigned char *) dst;
+		str_src = (unsigned char *) src;
+		while (i >= 0)
+		{
+			str_dst[i] = str_src[i];
+			i--;
+		}
 	}
-	free(dup);
 	return (dst);
 }
