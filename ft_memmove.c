@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 20:01:42 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/05 19:55:20 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/06 22:40:13 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int		i;
+	int				i;
 	unsigned char	*str_dst;
 	unsigned char	*str_src;
 
