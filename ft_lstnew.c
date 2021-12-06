@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 10:03:28 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/05 11:03:55 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/06 22:01:44 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,17 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	if (list)
 	{
 		list->next = NULL;
-		list->content = (void *)content;
 		if (!content)
+		{
+			list->content = NULL;
 			list->content_size = 0;
+		}
 		else
+		{
 			list->content_size = content_size;
+			list->content = ft_memalloc(content_size);
+			ft_memcpy(list->content, content, content_size);
+		}
 		return (list);
 	}
 	return (NULL);
