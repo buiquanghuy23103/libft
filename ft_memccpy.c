@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:26:15 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/05 16:08:31 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/06 22:46:07 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	const unsigned char	*str_src;
-	unsigned char	ch;
+	unsigned char		ch;
 	size_t				i;
 
 	str_src = (const unsigned char *) src;
