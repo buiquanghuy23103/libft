@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:38:42 by hbui              #+#    #+#             */
-/*   Updated: 2021/11/22 18:41:02 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/06 22:47:03 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_strclr(char *s)
 {
-	ft_bzero(s, ft_strlen(s));
+	if (s)
+	{
+		ft_bzero(s, ft_strlen(s));
+	}
 }
