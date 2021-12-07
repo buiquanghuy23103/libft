@@ -6,11 +6,13 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2021/12/05 13:11:45 by hbui             ###   ########.fr        #
+#    Updated: 2021/12/07 22:24:25 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+CFLAGS = -Wall -Werror -Wextra
 
 HEADER_DIR = .
 BUILD_DIR = ./build
@@ -38,7 +40,7 @@ $(NAME): $(OBJS)
 
 $(OBJS): $(BUILD_DIR)/%.o :%.c
 	mkdir -p $(dir $@)
-	gcc -I $(HEADER_DIR) -c $< -o $@
+	gcc $(CFLAGS) -I $(HEADER_DIR) -c $< -o $@
 
 clean:
 	rm -rf $(BUILD_DIR)
