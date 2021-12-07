@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:32:14 by hbui              #+#    #+#             */
-/*   Updated: 2021/11/22 18:33:30 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/07 11:31:00 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_strdel(char **as)
 {
-	if (!as)
-		return ;
-	ft_memdel((void **)as);
+	if (as && *as)
+		ft_memdel((void **)as);
 }
