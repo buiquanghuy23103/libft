@@ -6,20 +6,13 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 22:28:28 by hbui              #+#    #+#             */
-/*   Updated: 2021/10/31 07:16:36 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/07 11:29:34 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+char	*ft_strcpy(char *dst, const char *src)
+{
+	return (ft_strncpy(dst, src, ft_strlen(src) + 1));
 }
