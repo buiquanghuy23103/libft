@@ -6,21 +6,13 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:48:44 by hbui              #+#    #+#             */
-/*   Updated: 2021/11/27 07:37:42 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/07 10:20:16 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	unsigned char	c1;
-	unsigned char	c2;
+#include "libft.h"
 
-	while (*s1 == *s2 && *s1 != '\0')
-	{
-		s1++;
-		s2++;
-	}
-	c1 = (unsigned char) *s1;
-	c2 = (unsigned char) *s2;
-	return (c1 - c2);
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	return (ft_strncmp(s1, s2, ft_strlen(s1) + 1));
 }
