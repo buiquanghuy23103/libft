@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 23:42:18 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/07 10:06:25 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/07 22:28:00 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int				i;
+	size_t			i;
 	unsigned char	*u1;
 	unsigned char	*u2;
 

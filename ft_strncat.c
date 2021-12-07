@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:18:05 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/05 22:52:36 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/07 22:27:46 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int	s1_len;
-	int	s2_len;
-	int	k;
+	size_t	s1_len;
+	size_t	s2_len;
+	size_t	k;
 
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);

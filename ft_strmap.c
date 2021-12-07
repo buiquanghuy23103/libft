@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 21:59:38 by hbui              #+#    #+#             */
-/*   Updated: 2021/11/22 22:07:50 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/07 22:27:10 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int		i;
+	size_t	i;
 	char	*dup;
 
 	if (!s)
