@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:09:49 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/05 12:34:05 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/09 12:16:19 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (alst)
+	if (alst && new)
 	{
 		new->next = *alst;
 		*alst = new;
