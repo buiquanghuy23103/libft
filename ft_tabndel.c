@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 21:20:50 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/09 07:25:08 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/09 12:07:02 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ void	ft_tabndel(void **tab, size_t tab_len)
 
 	if (tab && *tab && tab_len > 0)
 	{
-		i = tab_len - 1;
+		i = 0;
 		itab = (int **) tab;
-		while (i >= 0)
+		while (i < tab_len)
 		{
-			ft_memdel((void **) itab[i]);
-			i--;
+			free(itab[i]);
+			i++;
 		}
+		free(tab);
 	}
 }
