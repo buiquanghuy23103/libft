@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 13:38:06 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/07 08:46:59 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/09 07:27:14 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,12 @@ static void	ft_solve(char **split, char *dup, int str_len)
 		while (i < str_len && !dup[i])
 			i++;
 		if (i < str_len)
-			split[c++] = ft_strdup(dup + i);
+		{
+			split[c] = ft_strdup(dup + i);
+			if (!split[c])
+				ft_tabdel((void **) split);
+			c++;
+		}
 		while (i < str_len && dup[i])
 			i++;
 	}
