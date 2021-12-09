@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:35:21 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/05 14:02:27 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/09 12:19:02 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list	*new_lst;
 	t_list	*temp;
 
-	if (lst)
+	if (lst && f)
 	{
 		new_lst = f(lst);
 		if (new_lst)

@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 10:58:27 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/05 13:24:43 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/09 12:18:01 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	t_list	*temp;
 
-	if (alst && *alst)
+	if (alst && *alst && del)
 	{
 		while (*alst)
 		{
