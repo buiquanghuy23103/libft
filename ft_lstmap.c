@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:35:21 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/09 12:19:02 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/13 15:17:42 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 				if (temp)
 					temp->next = NULL;
 				else
+				{
+					ft_lstdel(lst);
 					return (NULL);
+				}
 				lst = lst->next;
 			}
 		}
