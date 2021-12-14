@@ -6,11 +6,17 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:35:21 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/14 10:58:00 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/14 18:57:21 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	delitem(void *content, size_t content_size)
+{
+	ft_memdel(content);
+	(void) content_size;
+}	
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
@@ -32,7 +38,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 					temp->next = NULL;
 				else
 				{
-					ft_lstdel(new_lst);
+					ft_lstdel(&new_lst, delitem);
 					return (NULL);
 				}
 				lst = lst->next;
