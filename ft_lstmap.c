@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:35:21 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/14 18:57:21 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/20 20:23:49 by huybui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	delitem(void *content, size_t content_size)
 {
-	ft_memdel(content);
-	(void) content_size;
+	if (content_size > 0)
+		ft_memdel(content);
 }	
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
@@ -23,28 +23,26 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list	*new_lst;
 	t_list	*temp;
 
-	if (lst && f)
+	new_lst = NULL;
+	temp = NULL;
+	while (lst && f)
 	{
-		new_lst = f(lst);
-		if (new_lst)
+		if (!temp)
 		{
-			temp = new_lst;
-			lst = lst->next;
-			while (lst)
-			{
-				temp->next = f(lst);
-				temp = temp->next;
-				if (temp)
-					temp->next = NULL;
-				else
-				{
-					ft_lstdel(&new_lst, delitem);
-					return (NULL);
-				}
-				lst = lst->next;
-			}
+			temp = f(lst);
+			new_lst = temp;
 		}
-		return (new_lst);
+		else
+		{
+			temp->next = f(lst);
+			temp = temp->next;
+			lst = lst->next;
+		}
+		if (!temp)
+		{
+			ft_lstdel(&new_lst, delitem);
+			return (NULL);
+		}
 	}
-	return (NULL);
+	return (new_lst);
 }
