@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 18:57:25 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/21 22:51:19 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/21 22:59:26 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int		ft_isspace(int c);
 void	ft_tabndel(void ***tab, size_t tab_len);
 void	ft_tabdel(void ***tab);
 size_t	ft_tablen(const void **tab);
+int		ft_set(int *ret, int new_val);
 
 typedef struct s_list
 {
