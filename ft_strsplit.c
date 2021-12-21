@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 13:38:06 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/09 07:27:14 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/21 22:52:55 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	transform(char *s, char c)
 	return (count);
 }
 
-static void	ft_solve(char **split, char *dup, int str_len)
+static void	ft_solve(char ***split, char *dup, int str_len)
 {
 	int	i;
 	int	c;
@@ -47,9 +47,9 @@ static void	ft_solve(char **split, char *dup, int str_len)
 			i++;
 		if (i < str_len)
 		{
-			split[c] = ft_strdup(dup + i);
-			if (!split[c])
-				ft_tabdel((void **) split);
+			(*split)[c] = ft_strdup(dup + i);
+			if (!(*split)[c])
+				ft_tabdel((void ***) split);
 			c++;
 		}
 		while (i < str_len && dup[i])
@@ -72,7 +72,7 @@ char	**ft_strsplit(char const *s, char c)
 	split = (char **)ft_memalloc(sizeof(char *) * (transform(dup, c) + 1));
 	if (!split)
 		return (NULL);
-	ft_solve(split, dup, ft_strlen(s));
-	free(dup);
+	ft_solve(&split, dup, ft_strlen(s));
+	ft_strdel(&dup);
 	return (split);
 }
