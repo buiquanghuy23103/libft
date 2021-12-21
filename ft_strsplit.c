@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 13:38:06 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/21 22:52:55 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/21 22:58:00 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,20 @@ static void	ft_solve(char ***split, char *dup, int str_len)
 
 char	**ft_strsplit(char const *s, char c)
 {
-	int		i;
+	int		count;
 	char	*dup;
 	char	**split;
 
-	i = 0;
 	if (!s)
 		return (NULL);
 	dup = ft_strdup(s);
 	if (!dup)
 		return (NULL);
-	split = (char **)ft_memalloc(sizeof(char *) * (transform(dup, c) + 1));
+	count = transform(dup, c);
+	split = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!split)
 		return (NULL);
+	split[count] = NULL;
 	ft_solve(&split, dup, ft_strlen(s));
 	ft_strdel(&dup);
 	return (split);
