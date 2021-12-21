@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2021/12/21 22:44:56 by hbui             ###   ########.fr        #
+#    Updated: 2021/12/21 23:03:01 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
+	ranlib $@
 
 $(OBJS): $(BUILD_DIR)/%.o :%.c
 	mkdir -p $(dir $@)
