@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 18:57:25 by hbui              #+#    #+#             */
-/*   Updated: 2021/12/21 22:59:26 by hbui             ###   ########.fr       */
+/*   Updated: 2021/12/22 07:27:44 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+
+# define BUFF_SIZE 8
+# define FD_MAX 4096
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -78,6 +81,7 @@ void	ft_tabndel(void ***tab, size_t tab_len);
 void	ft_tabdel(void ***tab);
 size_t	ft_tablen(const void **tab);
 int		ft_set(int *ret, int new_val);
+int		get_next_line(const int fd, char **line);
 
 typedef struct s_list
 {
