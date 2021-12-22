@@ -34,9 +34,7 @@ static int	ft_read_line(char *buff, char **line)
 		*k = '\0';
 		if (ft_save(buff, line) == -1)
 			return (-1);
-		k = ft_strdup(k + 1);
-		ft_strcpy(buff, k);
-		ft_strdel(&k);
+		ft_memmove(buff, k + 1, buff + BUFF_SIZE - k);
 		return (1);
 	}
 	if (ft_save(buff, line) == -1)
