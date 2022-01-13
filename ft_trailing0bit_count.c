@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_trailing0bit_count.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 14:18:05 by hbui              #+#    #+#             */
-/*   Updated: 2022/01/05 14:05:26 by hbui             ###   ########.fr       */
+/*   Created: 2022/01/12 07:24:45 by hbui              #+#    #+#             */
+/*   Updated: 2022/01/12 07:52:18 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_trailing0bit_count(int x)
 {
-	size_t	dst_strlen;
-	size_t	src_strlen;
+	int	count;
 
-	dst_strlen = ft_strlen(dst);
-	src_strlen = ft_strlen(src);
-	if (dstsize > dst_strlen)
+	count = 0;
+	while ((x & 1) == 0)
 	{
-		ft_strncat(dst, src, dstsize - dst_strlen - 1);
-		return (dst_strlen + src_strlen);
+		x = x >> 1;
+		count++;
 	}
-	return (dstsize + src_strlen);
+	return (count);
 }
