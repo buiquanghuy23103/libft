@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/19 17:33:51 by hbui             ###   ########.fr        #
+#    Updated: 2022/03/19 17:38:53 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ gnl/get_next_line.o:
 
 clean:
 	make -sC base clean
-	make -sC gnl clean
+	rm -rf gnl/get_next_line.o
 	rm -rf a.out*
 
 fclean: clean
