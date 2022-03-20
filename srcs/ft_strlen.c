@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 11:18:04 by hbui              #+#    #+#             */
-/*   Updated: 2022/03/19 16:59:44 by hbui             ###   ########.fr       */
+/*   Created: 2021/10/27 16:47:07 by hbui              #+#    #+#             */
+/*   Updated: 2022/03/20 10:21:37 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
+size_t	ft_strlen(const char *s)
+{
+	int	length;
 
-# define BUFF_SIZE 8
-# define FD_MAX 4096
-
-#endif
+	length = 0;
+	if (!s || *s == 0)
+		return (0);
+	while (*s)
+	{
+		length++;
+		s++;
+	}
+	return (length);
+}

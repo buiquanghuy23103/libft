@@ -6,11 +6,11 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:17:43 by hbui              #+#    #+#             */
-/*   Updated: 2022/03/19 16:26:01 by hbui             ###   ########.fr       */
+/*   Updated: 2022/03/20 10:34:15 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static int	ft_save(char *buff, char **line)
 {
