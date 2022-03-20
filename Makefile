@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/20 13:38:33 by hbui             ###   ########.fr        #
+#    Updated: 2022/03/20 14:33:24 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,7 @@ check_core_libft:
 tests:
 	git clone https://github.com/buiquanghuy23103/moulitest.git tests
 	echo "LIBFT_PATH = $(shell pwd)" > tests/config.ini
+	echo "FT_PRINTF_PATH = $(shell pwd)" > tests/config.ini
 
 norm:
-	@find . -name '*.c' -name '*.h' | xargs norminette | grep "Error" || printf "\e[1;32mNORM ok\e[0;0m\n"
+	@find . -name '*.c' -o -name '*.h' | grep -v -e "./tests*" -e "test*" | xargs norminette | grep "Error" || printf "\e[1;32mNORM ok\e[0;0m\n"
