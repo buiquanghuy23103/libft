@@ -6,17 +6,16 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/20 10:34:51 by hbui             ###   ########.fr        #
+#    Updated: 2022/03/20 12:20:28 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 CFLAGS = -Wall -Werror -Wextra
-HEADER_FLAGS = -I includes
+HEADER_FLAGS = -I .
 
 BUILD_DIR = ./build
-SRCS_DIR = ./srcs
 
 SRCS = ft_abs.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 ft_isdigit.c ft_isprint.c ft_isspace.c ft_itoa.c ft_memalloc.c ft_memccpy.c \
@@ -43,7 +42,7 @@ $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
 	ranlib $@
 
-$(OBJS): $(BUILD_DIR)/%.o :$(SRCS_DIR)/%.c
+$(OBJS): $(BUILD_DIR)/%.o : %.c
 	mkdir -p $(dir $@)
 	gcc $(CFLAGS) $(HEADER_FLAGS) -c $< -o $@
 
