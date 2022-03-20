@@ -1,5 +1,6 @@
 .vscode
 test*
 libft.a
+libftprintf.a
 a.out
 *.o
