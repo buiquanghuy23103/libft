@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/20 12:56:04 by hbui             ###   ########.fr        #
+#    Updated: 2022/03/20 13:24:59 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ OBJS = $(SRCS:%.c=%.o)
 .PHONY = all clean fclean re check norm check_base
 
 all: $(NAME)
-	cp libft.a libftprintf.a
 
 $(NAME): $(OBJS)
 	ar -rcs $@ $(OBJS)
@@ -58,17 +57,24 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f libftprintf.a
 
 re: fclean all
 
-check: norm tests check_base check_ft_printf
+check: all norm tests check_base check_ft_printf
 
 check_ft_printf:
-	@make -sC tests ft_printf > /dev/null && printf "\e[1;32mFT_PRINTF ok\e[0;0m\n"
+	@echo ""
+	@cp libft.a libftprintf.a
+	@echo "ft_printf test result:"
+	@make -sC tests ft_printf 2>&1 | tee test_printf_log | grep ">>>> Result:"
+	@echo "See more details in test_printf_log"
+	@rm -f libftprintf.a
 
 check_base:
-	@make -sC tests libft_bonus > /dev/null && printf "\e[1;32mLIBFT ok\e[0;0m\n"
+	@echo ""
+	@echo "libft test result:"
+	@make -sC tests libft_bonus 2>&1 | tee test_base_log | grep ">>>> Result:"
+	@echo "See more details in test_base_log"
 
 tests:
 	git clone https://github.com/buiquanghuy23103/moulitest.git tests
