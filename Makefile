@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/20 13:24:59 by hbui             ###   ########.fr        #
+#    Updated: 2022/03/20 13:38:33 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra
 HEADER_FLAGS = -I .
 
-PRINTF_CONVS = d_conv.c c_conv.c s_conv.c p_conv.c o_conv.c u_conv.c x_conv.c \
-xx_conv.c perc_conv.c f_conv.c b_conv.c
-PRINTF_HELPERS = getinfo.c builder.c build_integer.c build_float.c build_color.c
+# Logs
+PRINTF_LOG = test_printf_log
+CORE_LIBFT_LOG = test_core_libft_log
 
 SRCS = ft_abs.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 ft_isdigit.c ft_isprint.c ft_isspace.c ft_itoa.c ft_memalloc.c ft_memccpy.c \
@@ -35,6 +35,9 @@ ft_open_close_file.c ft_setbit.c ft_getbit.c ft_swap.c \
 ft_trailing0bit_count.c ft_max1bits.c get_next_line.c
 
 # Add ft_printf
+PRINTF_CONVS = d_conv.c c_conv.c s_conv.c p_conv.c o_conv.c u_conv.c x_conv.c \
+xx_conv.c perc_conv.c f_conv.c b_conv.c
+PRINTF_HELPERS = getinfo.c builder.c build_integer.c build_float.c build_color.c
 SRCS += $(PRINTF_CONVS:%=printf_conversions/%)
 SRCS += $(PRINTF_HELPERS:%=printf_helpers/%)
 SRCS += ft_printf.c
@@ -54,27 +57,29 @@ $(OBJS): %.o : %.c
 clean:
 	rm -rf $(OBJS)
 	rm -rf a.out*
+	rm -rf $(PRINTF_LOG)
+	rm -rf $(CORE_LIBFT_LOG)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-check: all norm tests check_base check_ft_printf
+check: all norm tests check_core_libft check_ft_printf
 
 check_ft_printf:
 	@echo ""
 	@cp libft.a libftprintf.a
 	@echo "ft_printf test result:"
-	@make -sC tests ft_printf 2>&1 | tee test_printf_log | grep ">>>> Result:"
-	@echo "See more details in test_printf_log"
+	@make -sC tests ft_printf 2>&1 | tee $(PRINTF_LOG) | grep ">>>> Result:"
+	@echo "See more details in $(PRINTF_LOG)"
 	@rm -f libftprintf.a
 
-check_base:
+check_core_libft:
 	@echo ""
-	@echo "libft test result:"
-	@make -sC tests libft_bonus 2>&1 | tee test_base_log | grep ">>>> Result:"
-	@echo "See more details in test_base_log"
+	@echo "core libft test result:"
+	@make -sC tests libft_bonus 2>&1 | tee $(CORE_LIBFT_LOG) | grep ">>>> Result:"
+	@echo "See more details in $(CORE_LIBFT_LOG)"
 
 tests:
 	git clone https://github.com/buiquanghuy23103/moulitest.git tests
