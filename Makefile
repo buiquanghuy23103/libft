@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/20 12:52:37 by hbui             ###   ########.fr        #
+#    Updated: 2022/03/20 12:56:04 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,10 @@ fclean: clean
 
 re: fclean all
 
-check: norm tests check_base
+check: norm tests check_base check_ft_printf
+
+check_ft_printf:
+	@make -sC tests ft_printf > /dev/null && printf "\e[1;32mFT_PRINTF ok\e[0;0m\n"
 
 check_base:
 	@make -sC tests libft_bonus > /dev/null && printf "\e[1;32mLIBFT ok\e[0;0m\n"
