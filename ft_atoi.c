@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 08:33:26 by hbui              #+#    #+#             */
-/*   Updated: 2022/03/22 21:21:57 by hbui             ###   ########.fr       */
+/*   Updated: 2022/03/22 21:24:18 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int	ft_atoi(const char *str)
 	num = 0;
 	sign = 1;
 	while (str[i] && ft_isspace(str[i]))
-	{
 		i++;
-	}
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
