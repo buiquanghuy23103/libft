@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:47:07 by hbui              #+#    #+#             */
-/*   Updated: 2021/11/04 22:41:10 by hbui             ###   ########.fr       */
+/*   Updated: 2022/03/20 10:21:37 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	int	length;
 
 	length = 0;
-	if (*s == 0)
+	if (!s || *s == 0)
 		return (0);
 	while (*s)
 	{

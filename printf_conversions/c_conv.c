@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   c_conv.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 11:18:04 by hbui              #+#    #+#             */
-/*   Updated: 2022/03/19 16:59:44 by hbui             ###   ########.fr       */
+/*   Created: 2022/02/21 15:26:00 by hbui              #+#    #+#             */
+/*   Updated: 2022/03/04 10:28:05 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "ft_printf.h"
 
-# include "libft.h"
+static void	build_main(t_format *fm)
+{
+	fm->main = ft_strnew(1);
+	fm->main[0] = (char)va_arg(fm->ap, int);
+	fm->is_null_char = !fm->main[0];
+}
 
-# define BUFF_SIZE 8
-# define FD_MAX 4096
-
-#endif
+void	c_conv(t_format *fm)
+{
+	build_main(fm);
+}
