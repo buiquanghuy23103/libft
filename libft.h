@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 18:57:25 by hbui              #+#    #+#             */
-/*   Updated: 2022/03/22 21:15:41 by hbui             ###   ########.fr       */
+/*   Updated: 2022/03/22 21:23:08 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <fcntl.h>
+# include <limits.h>
 
 # define BUFF_SIZE 8
 # define FD_MAX 4096
