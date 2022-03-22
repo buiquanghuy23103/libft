@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/20 14:33:24 by hbui             ###   ########.fr        #
+#    Updated: 2022/03/22 21:13:55 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@ CFLAGS = -Wall -Werror -Wextra
 HEADER_FLAGS = -I .
 
 # Logs
-PRINTF_LOG = test_printf_log
-CORE_LIBFT_LOG = test_core_libft_log
+TEST_LOG = test_log
 
 SRCS = ft_abs.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 ft_isdigit.c ft_isprint.c ft_isspace.c ft_itoa.c ft_memalloc.c ft_memccpy.c \
@@ -65,26 +64,17 @@ fclean: clean
 
 re: fclean all
 
-check: all norm tests check_core_libft check_ft_printf
+check: all norm run_tests
 
-check_ft_printf:
-	@echo ""
-	@cp libft.a libftprintf.a
-	@echo "ft_printf test result:"
-	@make -sC tests ft_printf 2>&1 | tee $(PRINTF_LOG) | grep ">>>> Result:"
-	@echo "See more details in $(PRINTF_LOG)"
-	@rm -f libftprintf.a
+run_tests:tests update_tests 
+	make -sC tests/libft | tee $(TEST_LOG) | grep -v -e ':PASS'
 
-check_core_libft:
-	@echo ""
-	@echo "core libft test result:"
-	@make -sC tests libft_bonus 2>&1 | tee $(CORE_LIBFT_LOG) | grep ">>>> Result:"
-	@echo "See more details in $(CORE_LIBFT_LOG)"
+update_tests:
+	git -C tests pull
 
 tests:
-	git clone https://github.com/buiquanghuy23103/moulitest.git tests
-	echo "LIBFT_PATH = $(shell pwd)" > tests/config.ini
-	echo "FT_PRINTF_PATH = $(shell pwd)" > tests/config.ini
+	git clone https://github.com/buiquanghuy23103/Unity.git tests
 
 norm:
+	printf "\e[1;34m===NORM===\e[0m\n"
 	@find . -name '*.c' -o -name '*.h' | grep -v -e "./tests*" -e "test*" | xargs norminette | grep "Error" || printf "\e[1;32mNORM ok\e[0;0m\n"
