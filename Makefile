@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/22 22:03:51 by hbui             ###   ########.fr        #
+#    Updated: 2022/03/22 22:19:26 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,8 +57,7 @@ $(OBJS): %.o : %.c
 clean:
 	rm -rf $(OBJS)
 	rm -rf a.out*
-	rm -rf $(PRINTF_LOG)
-	rm -rf $(CORE_LIBFT_LOG)
+	rm -rf $(TEST_LOG)
 
 fclean: clean
 	rm -f $(NAME)
