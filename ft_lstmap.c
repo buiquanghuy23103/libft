@@ -6,45 +6,25 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:35:21 by hbui              #+#    #+#             */
-/*   Updated: 2022/01/27 11:25:43 by hbui             ###   ########.fr       */
+/*   Updated: 2022/03/23 07:15:59 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static void	delitem(void *content, size_t content_size)
-{
-	ft_memdel(content);
-	(void) content_size;
-}	
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*new_lst;
 	t_list	*temp;
 
-	if (lst && f)
+	if (!lst || !f)
+		return (NULL);
+	new_lst = NULL;
+	while (lst)
 	{
-		new_lst = f(lst);
-		if (new_lst)
-		{
-			temp = new_lst;
-			lst = lst->next;
-			while (lst)
-			{
-				temp->next = f(lst);
-				temp = temp->next;
-				if (temp)
-					temp->next = NULL;
-				else
-				{
-					ft_lstdel(&new_lst, delitem);
-					return (NULL);
-				}
-				lst = lst->next;
-			}
-		}
-		return (new_lst);
+		temp = f(lst);
+		ft_lst_push_back(&new_lst, temp->content, temp->content_size);
+		lst = lst->next;
 	}
-	return (NULL);
+	return (new_lst);
 }
