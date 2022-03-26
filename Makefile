@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/26 10:56:34 by hbui             ###   ########.fr        #
+#    Updated: 2022/03/26 11:20:36 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,18 +71,20 @@ check: all norm run_tests
 run_tests: update_tests 
 	@make -sC tests/libft | tee $(TEST_LOG) | grep -v -e ':PASS'
 	@cp libft.a libftprintf.a
-	@make -sC tests_moulitests ft_printf | tee $(PRINTF_TEST_LOG) | grep -v -e 'Ok'
+	@make -sC tests_moulitests ft_printf | tee $(PRINTF_TEST_LOG) | grep -v -e 'Ok' | grep '>>>>'
 	@rm -rf libftprintf.a
 
 update_tests: tests tests_moulitests
-	@git -C tests pull
-	@git -C tests_moulitests pull
+	@git -C tests pull > /dev/null
+	@git -C tests_moulitests pull > /dev/null
 
 tests:
-	@git clone https://github.com/buiquanghuy23103/Unity.git tests
+	@git clone https://github.com/buiquanghuy23103/Unity.git tests > /dev/null
+	@echo "Cloned https://github.com/buiquanghuy23103/Unity.git"
 
 tests_moulitests:
 	@git clone https://github.com/buiquanghuy23103/moulitest.git tests_moulitests
+	@echo "Cloned https://github.com/buiquanghuy23103/moulitest.git"
 	echo "FT_PRINTF_PATH = $(shell pwd)" > tests_moulitests/config.ini
 
 norm:
