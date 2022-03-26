@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/22 22:19:26 by hbui             ###   ########.fr        #
+#    Updated: 2022/03/26 10:56:34 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ HEADER_FLAGS = -I .
 
 # Logs
 TEST_LOG = test_log
+PRINTF_TEST_LOG = printf_test_log
 
 SRCS = ft_abs.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 ft_isdigit.c ft_isprint.c ft_isspace.c ft_itoa.c ft_memalloc.c ft_memccpy.c \
@@ -58,6 +59,7 @@ clean:
 	rm -rf $(OBJS)
 	rm -rf a.out*
 	rm -rf $(TEST_LOG)
+	rm -rf $(PRINTF_TEST_LOG)
 
 fclean: clean
 	rm -f $(NAME)
@@ -66,14 +68,22 @@ re: fclean all
 
 check: all norm run_tests
 
-run_tests:tests update_tests 
+run_tests: update_tests 
 	@make -sC tests/libft | tee $(TEST_LOG) | grep -v -e ':PASS'
+	@cp libft.a libftprintf.a
+	@make -sC tests_moulitests ft_printf | tee $(PRINTF_TEST_LOG) | grep -v -e 'Ok'
+	@rm -rf libftprintf.a
 
-update_tests:
+update_tests: tests tests_moulitests
 	@git -C tests pull
+	@git -C tests_moulitests pull
 
 tests:
 	@git clone https://github.com/buiquanghuy23103/Unity.git tests
+
+tests_moulitests:
+	@git clone https://github.com/buiquanghuy23103/moulitest.git tests_moulitests
+	echo "FT_PRINTF_PATH = $(shell pwd)" > tests_moulitests/config.ini
 
 norm:
 	@printf "\e[1;34m===NORM===\e[0m\n"
