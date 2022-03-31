@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 18:57:25 by hbui              #+#    #+#             */
-/*   Updated: 2022/03/30 22:31:33 by hbui             ###   ########.fr       */
+/*   Updated: 2022/03/31 22:30:30 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list	*ft_lst_push_back(t_list **lst, void *content, size_t content_size);
 size_t	ft_lst_len(t_list *lst);
 t_list	*ft_lst_get(t_list *lst, int index);
+t_list	*ft_lst_pop(t_list **lst);
 
 int		ft_numlen(int n);
 int		ft_abs(int n);
