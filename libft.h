@@ -6,7 +6,7 @@
 /*   By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 18:57:25 by hbui              #+#    #+#             */
-/*   Updated: 2022/03/31 23:23:22 by hbui             ###   ########.fr       */
+/*   Updated: 2022/04/12 22:19:13 by hbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ int		ft_getbit(const int num, const unsigned int i);
 void	ft_swap(int *a, int *b);
 int		ft_trailing0bit_count(int x);
 int		ft_max1bits(int x);
+void	ft_qsort(int *input_arr, size_t arr_size);
 int		ft_printf(const char *format, ...);
 
 #endif

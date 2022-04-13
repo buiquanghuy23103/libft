@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/03/31 23:23:38 by hbui             ###   ########.fr        #
+#    Updated: 2022/04/11 22:12:27 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c \
 ft_lst_push_back.c ft_lst_len.c ft_lst_get.c ft_lst_pop_front.c \
 ft_lst_push_front.c ft_lst_pop_back.c \
 ft_tabndel.c ft_tabdel.c ft_tablen.c ft_set.c \
-ft_open_close_file.c ft_setbit.c ft_getbit.c ft_swap.c \
+ft_open_close_file.c ft_setbit.c ft_getbit.c ft_swap.c ft_qsort.c\
 ft_trailing0bit_count.c ft_max1bits.c get_next_line.c
 
 # Add ft_printf
