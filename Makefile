@@ -6,7 +6,7 @@
 #    By: hbui <hbui@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 11:39:05 by hbui              #+#    #+#              #
-#    Updated: 2022/04/11 22:12:27 by hbui             ###   ########.fr        #
+#    Updated: 2022/04/13 11:31:19 by hbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,4 +90,4 @@ tests_moulitests:
 
 norm:
 	@printf "\e[1;34m===NORM===\e[0m\n"
-	@find . -name '*.c' -o -name '*.h' | grep -v -e "./tests*" -e "test*" | xargs norminette | grep "Error" || printf "\e[1;32mNORM ok\e[0;0m\n"
+	@norminette $(SRCS)| grep "Error" || printf "\e[1;32mNORM ok\e[0;0m\n"
